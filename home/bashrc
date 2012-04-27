@@ -1,0 +1,11 @@
+##
+# local interactive login profile for bash
+#
+# Copyright 2011 by Andrew Kennedy; All Rights Reserved
+#
+# Author: Andrew Kennedy <andrew.international@gmail.com>
+# Last modified: 201105281725
+##
+#set -x # debug
+
+#/opt/local/bin/fortune

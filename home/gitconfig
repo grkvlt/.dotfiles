@@ -1,0 +1,41 @@
+[user]
+	name = Andrew Donald Kennedy
+    email = andrew.kennedy@cloudsoftcorp.com
+    signingkey = A9D7D0C7
+[apply]
+    ignorewhitespace = change
+    whitespace = nowarn
+[core]
+    whitespace = tabwidth=4
+[color]
+    ui = auto
+[github]
+    user = grkvlt
+    email = grkvlt@apache.org
+    token = 59c55c0fe36446ce55c363243882a4ca
+[alias]
+    ci = commit
+    lc = log ORIG_HEAD.. --stat --no-merges
+    lg = log --pretty=format:'%h : %s' --topo-order --graph
+    hard = reset --hard
+    soft = reset --soft
+    undo = reset HEAD
+    head = log --oneline --decorate --color --max-count=10
+    next = log --oneline --decorate --color --max-count=10 --shortstat --graph
+    word = diff --word-diff --color
+[status]
+	showUntrackedFiles = all
+[gui]
+	fontui = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	trustmtime = true
+	fontdiff = -family Inconsolata -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+	fastcopyblame = true
+	pruneduringfetch = true
+	diffcontext = 10
+	matchtrackingbranch = true
+	newbranchtemplate = engr-xxxx-yyyy
+[merge]
+	verbosity = 3
+	summary = true
+[branch]
+	autosetuprebase = always

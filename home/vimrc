@@ -1,0 +1,31 @@
+syntax enable
+let g:solarized_termtrans = 1
+colorscheme solarized
+set ts=4       " tab stop width
+set sw=4       " indent width
+set wm=5       " break line wm chars before right margin
+set tw=128     " break line after tw chars
+set sta        " smart tab - <tab> = sw * <spc>
+set sts=4      " <spc> to insert for a <tab>
+set et         " expand tabs to spaces
+set sr         " round to sw for indents with >> and <<
+set sm         " show matching braces
+set ai         " auto indent
+set si         " smart indenting
+set cin        " smart 'C' indenting
+set ci         " copy whitespace for indent from prev line
+set ic         " ignore case in searches etc
+set ru         " show ruler
+set sc         " show command
+set smd        " show mode
+set report=1   " report commands altering 1+ lines
+set vb         " visual bell
+set wa         " write any, no w! required
+set ff=unix    " file format - dos, unix or mac
+set ffs=unix,dos,mac " file formats to look for
+"set wb         " write backup before overwrite
+"set bk         " keep backup after overwrite
+"set bex=.bak   " backup extension
+set ar         " always read file, even if modified
+set nojs       " no second space after '.' when joining
+

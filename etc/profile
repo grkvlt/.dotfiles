@@ -1,0 +1,35 @@
+##
+# System-wide profile for all shells.
+#
+# Sets up PATH and MANPATH using path_helper
+#
+# Copyright 2011 by Andrew Kennedy; All Rights Reserved
+#
+# Author: Andrew Kennedy <andrew.international@gmail.com>
+# Last modified: 201105302135
+##
+#set -x # debug
+
+# setup PATH and MANPATH
+export MANPATH=/usr/share/man
+if [ -x /usr/libexec/path_helper ]; then
+	eval `/usr/libexec/path_helper -s`
+fi
+
+# load extra profile scripts
+for script in /opt/local/etc/profile.d/*.sh; do
+	if [ -r "${script}" ]; then
+		if [ "${PS1}" ]; then
+			. ${script}
+		else
+			. ${script} > /dev/null 2>&1
+		fi
+	fi
+done
+
+# run bashrc
+if [ "${BASH-no}" != "no" ]; then
+	[ -r /etc/bashrc ] && . /etc/bashrc
+fi
+
+# vim:ts=4:sw=4
