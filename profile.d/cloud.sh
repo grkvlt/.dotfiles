@@ -1,25 +1,15 @@
 ##
 # Cloud Environment Setup
 #
-# Copyright 2011-2012 by Andrew Kennedy; All Rights Reserved
+# Copyright 2011-2013 by Andrew Kennedy; All Rights Reserved
 #
 # Author: andrew.international@gmail.com
-# Last Modified: 2012-02-16 20:22
+# Last Modified: 2013-02-19 12:11
 ##
 
 ##
 # Amazon AWS EC2
 ##
-
-AWS=/Developer/AWS
-
-EC2_PRIVATE_KEY=${AWS}/pk-RMFJOWVNZBSAWAX6FN6LJZGQRW44RYDR.pem
-EC2_CERT=${AWS}/cert-RMFJOWVNZBSAWAX6FN6LJZGQRW44RYDR.pem
-EC2_HOME=${AWS}/api-tools
-EC2_REGION="eu-west-1"
-EC2_URL="https://${EC2_REGION}.ec2.amazonaws.com/"
-
-export EC2_PRIVATE_KEY EC2_CERT EC2_HOME EC2_REGION EC2_URL
 
 AWS_ACCESS_KEY_ID=""
 AWS_SECRET_ACCESS_KEY=""
@@ -158,9 +148,4 @@ function bluelock_live_test() {
     ${CMD} || open target/surefire-reports/index.html
 }
 
-##
-# Path
-##
-
-PATH=${PATH}:${EC2_HOME}/bin
-export PATH
+# vim:ts=4:sw=4

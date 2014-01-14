@@ -5,8 +5,9 @@
 # __git_ps1 environment variables
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
-#export GIT_PS1_SHOWSTASHSTATE=true
-export GIT_PS1_SHOWUPSTREAM=auto
+export GIT_PS1_SHOWSTASHSTATE=true
+export GIT_PS1_SHOWUPSTREAM=auto verbose
+export GIT_PS1_SHOWCOLORHINTS=true
 
 # run git add or remove automatically
 function gitmo() {
@@ -53,3 +54,5 @@ EOH
         sed "s/^/    /"
     echo "}"
 }
+
+# vim:ts=4:sw=4
