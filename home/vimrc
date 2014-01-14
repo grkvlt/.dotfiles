@@ -28,4 +28,5 @@ set ffs=unix,dos,mac " file formats to look for
 "set bex=.bak   " backup extension
 set ar         " always read file, even if modified
 set nojs       " no second space after '.' when joining
+"set guifont=Consolas:h11 " default font and size
 

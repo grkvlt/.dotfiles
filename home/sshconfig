@@ -1,0 +1,63 @@
+host repo-tlv
+    user gitolite
+    hostname 172.29.38.39
+    identityfile ~/.ssh/akennedy-gitolite
+
+host github.com
+    user git
+    identityfile ~/.ssh/git.pem
+
+host brooklyn.builds.cloudsoftcorp.com
+    user ubuntu
+    identityfile ~/.ssh/jenkins.pem
+
+host localhost
+    stricthostkeyCHecking no
+
+host ec2-79-125-81-105.eu-west-1.compute.amazonaws.com
+    user ubuntu
+    identityfile ~/.ssh/id_rsa-adk
+
+host brooklyn.soda.sh
+    user brooklyn
+    hostname 46.4.81.208
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host wells.soda.sh
+    user brooklyn
+    hostname 46.4.81.208
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host wells
+    user brooklyn
+    hostname 46.4.81.208
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host dick.soda.sh
+    user brooklyn
+    hostname 144.76.222.8
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host dick
+    user brooklyn
+    hostname 144.76.222.8
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host dahl.soda.sh
+    user brooklyn
+    hostname 46.4.90.14
+    identityfile ~/.ssh/id_rsa-jclouds
+
+host dahl
+    user brooklyn
+    hostname 46.4.90.14
+    identityfile ~/.ssh/id_rsa-jclouds
+
+Host git.winterwell.com
+    user git
+    identityfile ~/.ssh/git.pem
+
+host jenkins
+    user ubuntu
+    hostname brooklyn.builds.cloudsoftcorp.com
+    identityfile ~/.ssh/jenkins.pem

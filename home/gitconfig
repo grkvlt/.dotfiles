@@ -1,12 +1,20 @@
 [user]
-	name = Andrew Donald Kennedy
-    email = andrew.kennedy@cloudsoftcorp.com
+	name = Andrew Kennedy
+	email = andrew.kennedy@cloudsoftcorp.com
     signingkey = A9D7D0C7
+[core]
+    whitespace = tabwidth=4
+	excludesfile = /Users/adk/.gitignore_global
+	autocrlf = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Developer/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
 [apply]
     ignorewhitespace = change
     whitespace = nowarn
-[core]
-    whitespace = tabwidth=4
 [color]
     ui = auto
 [github]
@@ -14,28 +22,31 @@
     email = grkvlt@apache.org
     token = 59c55c0fe36446ce55c363243882a4ca
 [alias]
-    ci = commit
-    lc = log ORIG_HEAD.. --stat --no-merges
-    lg = log --pretty=format:'%h : %s' --topo-order --graph
+    clog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
     hard = reset --hard
     soft = reset --soft
     undo = reset HEAD
-    head = log --oneline --decorate --color --max-count=10
-    next = log --oneline --decorate --color --max-count=10 --shortstat --graph
+    head = log --oneline --decorate --color --max-count 10
+    topn = log --oneline --decorate --color --max-count
+    graf = log --oneline --decorate --color --shortstat --graph --max-count
     word = diff --word-diff --color
+    from = pull brooklyncentral master
+    back = push origin master
 [status]
-	showUntrackedFiles = all
+    showUntrackedFiles = all
 [gui]
-	fontui = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
-	trustmtime = true
-	fontdiff = -family Inconsolata -size 11 -weight normal -slant roman -underline 0 -overstrike 0
-	fastcopyblame = true
-	pruneduringfetch = true
-	diffcontext = 10
-	matchtrackingbranch = true
-	newbranchtemplate = engr-xxxx-yyyy
+    fontui = -family \"Lucida Grande\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+    trustmtime = true
+    fontdiff = -family Inconsolata -size 11 -weight normal -slant roman -underline 0 -overstrike 0
+    fastcopyblame = true
+    pruneduringfetch = true
+    diffcontext = 10
+    matchtrackingbranch = true
+    newbranchtemplate = engr-xxxx-yyyy
 [merge]
-	verbosity = 3
-	summary = true
+    verbosity = 3
+    summary = true
 [branch]
-	autosetuprebase = always
+    autosetuprebase = always
+[push]
+	default = current
