@@ -3,33 +3,32 @@
 #
 # Sets up PATH and MANPATH using path_helper
 #
-# Copyright 2011 by Andrew Kennedy; All Rights Reserved
-#
-# Author: Andrew Kennedy <andrew.international@gmail.com>
-# Last modified: 201105302135
+# Copyright 2011-2013 by Andrew Kennedy
 ##
 #set -x # debug
 
-# setup PATH and MANPATH
+# setup the file search paths
+# see contents of /etc/paths and /etc/paths.d/*
 export MANPATH=/usr/share/man
 if [ -x /usr/libexec/path_helper ]; then
-	eval `/usr/libexec/path_helper -s`
+        eval `/usr/libexec/path_helper -s`
 fi
 
-# load extra profile scripts
+# execute profile scripts
+# TODO ordering cf. system v init.d and rcX.d
 for script in /opt/local/etc/profile.d/*.sh; do
-	if [ -r "${script}" ]; then
-		if [ "${PS1}" ]; then
-			. ${script}
-		else
-			. ${script} > /dev/null 2>&1
-		fi
-	fi
+        if [ -r "${script}" ]; then
+                if [ "${PS1}" ]; then
+                        . ${script}
+                else
+                        . ${script} > /dev/null 2>&1
+                fi
+        fi
 done
 
 # run bashrc
 if [ "${BASH-no}" != "no" ]; then
-	[ -r /etc/bashrc ] && . /etc/bashrc
+        [ -r /etc/bashrc ] && . /etc/bashrc
 fi
 
 # vim:ts=4:sw=4
