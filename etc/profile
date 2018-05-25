@@ -9,26 +9,25 @@
 
 # setup the file search paths
 # see contents of /etc/paths and /etc/paths.d/*
-export MANPATH=/usr/share/man
 if [ -x /usr/libexec/path_helper ]; then
-        eval `/usr/libexec/path_helper -s`
+    eval `/usr/libexec/path_helper -s`
 fi
 
 # execute profile scripts
 # TODO ordering cf. system v init.d and rcX.d
 for script in /opt/local/etc/profile.d/*.sh; do
-        if [ -r "${script}" ]; then
-                if [ "${PS1}" ]; then
-                        . ${script}
-                else
-                        . ${script} > /dev/null 2>&1
-                fi
+    if [ -r "${script}" ]; then
+        if [ "${PS1}" ]; then
+            . ${script}
+        else
+            . ${script} > /dev/null 2>&1
         fi
+    fi
 done
 
 # run bashrc
 if [ "${BASH-no}" != "no" ]; then
-        [ -r /etc/bashrc ] && . /etc/bashrc
+    [ -r /etc/bashrc ] && . /etc/bashrc
 fi
 
 # vim:ts=4:sw=4

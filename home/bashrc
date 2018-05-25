@@ -20,3 +20,5 @@ if echo $- | grep -q i ; then : ; else
     source ~/.profile
     return
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

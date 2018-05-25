@@ -1,5 +1,10 @@
-##
-# Copyright 2011-2013 by Cloudsoft Corp.; All Rights Reserved.
-##
+# System-wide .bashrc file for interactive bash(1) shells.
+if [ -z "$PS1" ]; then
+   return
+fi
 
-# vim:ts=4:sw=4
+PS1='\h:\W \u\$ '
+# Make bash check its window size after a process completes
+shopt -s checkwinsize
+
+[ -r "/etc/bashrc_$TERM_PROGRAM" ] && . "/etc/bashrc_$TERM_PROGRAM"

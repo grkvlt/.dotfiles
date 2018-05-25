@@ -1,3 +1,8 @@
+host *.compute.amazonaws.com *.compute-1.amazonaws.com
+    batchmode yes
+    stricthostkeychecking no
+    userknownhostsfile /dev/null
+
 host repo-tlv
     user gitolite
     hostname 172.29.38.39
@@ -18,46 +23,45 @@ host ec2-79-125-81-105.eu-west-1.compute.amazonaws.com
     user ubuntu
     identityfile ~/.ssh/id_rsa-adk
 
-host brooklyn.soda.sh
-    user brooklyn
-    hostname 46.4.81.208
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host wells.soda.sh
-    user brooklyn
-    hostname 46.4.81.208
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host wells
-    user brooklyn
-    hostname 46.4.81.208
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host dick.soda.sh
-    user brooklyn
-    hostname 144.76.222.8
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host dick
-    user brooklyn
-    hostname 144.76.222.8
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host dahl.soda.sh
-    user brooklyn
-    hostname 46.4.90.14
-    identityfile ~/.ssh/id_rsa-jclouds
-
-host dahl
-    user brooklyn
-    hostname 46.4.90.14
-    identityfile ~/.ssh/id_rsa-jclouds
-
-Host git.winterwell.com
-    user git
-    identityfile ~/.ssh/git.pem
-
 host jenkins
     user ubuntu
     hostname brooklyn.builds.cloudsoftcorp.com
     identityfile ~/.ssh/jenkins.pem
+
+host resident-amp-20140205
+    user brooklyn
+    hostname 5.153.42.36
+    identityfile ~/.ssh/amp.pem
+
+host canopy
+    user root
+    hostname 217.115.71.184
+    port 11023
+
+host brooklynkvm
+    user brooklyn
+    hostname 192.168.2.157
+    identityfile ~/.ssh/id_rsa-jclouds
+    localforward 5900 127.0.0.1:5900
+    localforward 5901 127.0.0.1:5901
+    localforward 5902 127.0.0.1:5902
+    localforward 5903 127.0.0.1:5903
+    localforward 5904 127.0.0.1:5904
+    localforward 5905 127.0.0.1:5905
+    localforward 5906 127.0.0.1:5906
+    localforward 5907 127.0.0.1:5907
+    localforward 5908 127.0.0.1:5908
+    localforward 5909 127.0.0.1:5909
+
+host huawei
+    user brooklyn
+    hostname 10.145.96.124
+
+host tardis
+    user adk
+    hostname ssh.tardis.ed.ac.uk
+    forwardx11trusted yes
+    forwardx11 yes
+    #localforward 8080 127.0.0.1:80
+    #localforward 8443 127.0.0.1:443
+    #identityfile ~/.ssh/git.pem

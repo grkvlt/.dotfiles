@@ -1,1 +1,13 @@
+##
+# Profile
+#
+# Copyright 2011-2018 by Andrew Donald Kennedy; All Rights Reserved.
+##
 
+##
+# Add HOME bin folders to PATH
+PATH="$HOME/.rvm/bin:$HOME/.cargo/bin:$PATH"
+export PATH
+##
+
+# vim:ts=4:sw=4

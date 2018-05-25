@@ -3,7 +3,7 @@
 #
 # Set the shell PS1 prompt to something informative
 #
-# Copyright 2011-2013 by Cloudsoft Corp.; All Rights Reserved.
+# Copyright 2011-2015 by Andrew Donald Kennedy; All Rights Reserved.
 ##
 
 ##

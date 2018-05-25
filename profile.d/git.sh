@@ -1,15 +1,17 @@
 ##
-# git setup
+# Git Setup
+#
+# Copyright 2011-2015 by Andrew Donald Kennedy; All Rights Reserved.
 ##
 
-# __git_ps1 environment variables
+# Configure __git_ps1 environment variables
 export GIT_PS1_SHOWDIRTYSTATE=true
 export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWSTASHSTATE=true
 export GIT_PS1_SHOWUPSTREAM=auto verbose
 export GIT_PS1_SHOWCOLORHINTS=true
 
-# run git add or remove automatically
+# Run git add or remove automatically
 function gitmo() {
     param=$1
     case "${param}" in
@@ -33,7 +35,7 @@ function gitmo() {
     }
 }
 
-# create graphviz .dot file of commits
+# Create graphviz .dot file of commits
 function git-graphviz() {
     cat <<EOH
 digraph git {
@@ -54,5 +56,25 @@ EOH
         sed "s/^/    /"
     echo "}"
 }
+
+# Delete old, merged branches
+alias git-delete-merged='git branch --merged | grep -v "\*" | xargs git branch -D'
+
+function git-followup() {
+    if [ $# -eq 0 ]; then
+        email="andrew.kennedy@cloudsoftcorp.com"
+    else
+        email=$1
+    fi
+
+    git log --since '1 day ago' --oneline --author '${email}'
+}
+
+# Create g-prefixed shell aliases for defined git commands
+for alias in $(git var -l | sed -nE 's/^alias\.([^=]*)=.*/\1/p'); do
+    if ! command -v "g${alias}" >/dev/null 2>&1; then
+        alias g${alias}="git ${alias}"
+    fi
+done
 
 # vim:ts=4:sw=4

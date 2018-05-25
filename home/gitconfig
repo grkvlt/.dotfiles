@@ -1,19 +1,21 @@
 [user]
-	name = Andrew Kennedy
+	name = Andrew Donald Kennedy
 	email = andrew.kennedy@cloudsoftcorp.com
-    signingkey = A9D7D0C7
+    signingkey = ECF5AB2A
 [core]
     whitespace = tabwidth=4
 	excludesfile = /Users/adk/.gitignore_global
-	autocrlf = true
+	autocrlf = input
+    pager = "diff-so-fancy | less --tabs=1,5 -R"
+#	safecrlf = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
-	cmd = /Developer/Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Developer/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [apply]
-    ignorewhitespace = change
+#    ignorewhitespace = true
     whitespace = nowarn
 [color]
     ui = auto
@@ -22,7 +24,7 @@
     email = grkvlt@apache.org
     token = 59c55c0fe36446ce55c363243882a4ca
 [alias]
-    clog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --
+    amend = commit --amend --all --no-edit -S
     hard = reset --hard
     soft = reset --soft
     undo = reset HEAD
@@ -32,6 +34,30 @@
     word = diff --word-diff --color
     from = pull brooklyncentral master
     back = push origin master
+    springcleaning = for-each-ref --sort=-committerdate --format='%(refname:short) %(committerdate:short)'
+    r = reset
+    r1 = reset HEAD^
+    r2 = reset HEAD^^
+    rh = reset --hard
+    rh1 = reset HEAD^ --hard
+    rh2 = reset HEAD^^ --hard
+    cp = cherry-pick
+    cl = clone
+    ci = commit
+    co = checkout
+    br = branch
+    ds = diff --staged
+    dc = diff --cached
+    st = status -sb
+    l = log
+    lh = log --graph
+    la = !git lh --date-order --all 2> /dev/null
+    lb = log --graph --simplify-by-decoration
+    lba = !git lb --all
+    h = !git --no-pager log --graph -n 15
+    a = !git --no-pager la -n 15
+	dfw = diff --ignore-space-change
+	git = !exec git
 [status]
     showUntrackedFiles = all
 [gui]
@@ -49,4 +75,18 @@
 [branch]
     autosetuprebase = always
 [push]
-	default = current
+    default = tracking
+[help]
+    autocorrect = 1
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
+[http]
+	sslVerify = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true

@@ -3,7 +3,7 @@
 #
 # Useful commands and functions for the shell environment.
 #
-# Copyright 2011-2013 by Cloudsoft Corp.; All Rights Reserved.
+# Copyright 2011-2015 by Andrew Donald Kennedy; All Rights Reserved.
 ##
 
 ##
@@ -201,6 +201,50 @@ function quit () {
     for app in $*; do
         osascript -e 'quit app "'$app'"'
     done
+}
+##
+
+##
+# Reboot onto an alternate partition; Reverts to normal after the restart
+# Checks various directory prefixes for mount point
+# Usage:
+#   alternative debian
+function alternative () {
+    [ $# -eq 1 ] || exit 1
+    for prefix in "" "/Volumes" "/mnt" "/boot"; do
+        [ -d "${prefix}/${1}" ] && (
+                sudo bless -mount /Volumes/${folder}/ -legacy -setBoot -nextonly
+                shutdown -r now
+                exit 0
+            )
+    done
+}
+##
+
+##
+# Quick and dirty SMTP server; Port 25 by default, requires sudo
+# Usage:
+#   quicksmtpd portNumber
+function quicksmtpd () {
+    port=${1:-25}
+    sudo python -m smtpd -n -c DebuggingServer localhost:${port}
+}
+##
+
+##
+# Quick and dirty HTTP server; Port 8080 by default
+# Usage:
+#   quickhttpd portNumber
+function quickhttpd () {
+    port=${1:-8080}
+    python -m SimpleHTTPServer ${port}
+}
+##
+
+##
+# Pretty print JSON
+function json () {
+    curl -s "$@" | python -m json.tool
 }
 ##
 

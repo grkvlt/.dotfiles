@@ -1,4 +1,5 @@
 syntax enable
+set background=dark
 let g:solarized_termtrans = 1
 colorscheme solarized
 set ts=4       " tab stop width
@@ -28,5 +29,9 @@ set ffs=unix,dos,mac " file formats to look for
 "set bex=.bak   " backup extension
 set ar         " always read file, even if modified
 set nojs       " no second space after '.' when joining
-"set guifont=Consolas:h11 " default font and size
-
+set guifont=Consolas:h11 " default font and size
+set paste      " no indent on paste
+set modeline   " enable modelines
+set modelines=5 " check last/first 5 lines
+set statusline=%F%m%r%h%w\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+set laststatus=2
